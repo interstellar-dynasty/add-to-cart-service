@@ -4,19 +4,17 @@
   "description": "FEC project",
   "author": "Hannah Kang",
   "license": "",
-  "engines": {
-    "node": ">=6.13.0"
-  },
+  "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "start": "webpack --config ./webpack.config.js -w --mode production",
-    "server-dev": "nodemon server"
+    "start": "nodemon ./server/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "mongodb": "^3.1.13",
+    "mongodb-schema": "^8.2.3",
     "mongoose": "^5.4.10",
     "react": "^16.8.1",
     "react-dom": "^16.8.1"
