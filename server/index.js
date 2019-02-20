@@ -10,7 +10,7 @@ const db = require('../database/index.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static('/dist'));
+app.use(express.static(__dirname + '/../dist'));
 
 app.get('/api/getAll', (req, res) => {
   db.getAllProducts((err, data) => {
@@ -22,5 +22,6 @@ app.get('/api/getAll', (req, res) => {
       console.log('get request successful!')
     })
   })
+// console.log(__dirname);
 
   app.listen(port, () => console.log(`Server is listening on port ${port}!`))
