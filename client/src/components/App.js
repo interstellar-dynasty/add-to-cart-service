@@ -1,29 +1,48 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
+import Axios from 'axios';
 
-import Items from './Items';
-import Cart from './Cart';
-import Button from './Button';
-import Quanity from './QuantityButton'
-
-
+let newQ = this.state.quantity + 1;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: [],
-      total:0,
+      productsId: '',
+      price: '',
+      data: [],
+      quantity: 1,
     };
-
   }
 
+  componentDidMount() {
+    Axios.get('/api/getAll')
+    .then(res => {
+      this.setState({data: res});
+  })
+}
+
+  handleClick(event) {
+  event.preventDefault();
+  this.setState({quantity: newQ });
+} 
   render() {
     return (
       <div>
-        <Button />
+        <input type="button" value="Add to cart" onClick={handleClick} />
+        <div> `${this.state.data.product_Name}:_${this.state.data.price}`</div>
       </div>
-    )
+    );
   }
 }
 export default App;
+
+// import React from 'react';
+
+// const Button = ({ onClick }) => {
+//   return (
+//     <input type="button" value="Add to cart" onClick={onClick} />
+//   )
+// }
+
+// export default Button;
