@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../dist'));
 
 app.get('/api/getAll', (req, res) => {
-  db.getAllProducts((err, data) => {
+  db.getAllProducts(60, (err, data) => {
     if(err) {
       console.log(err, 'error on get api')
       res.end()
@@ -22,6 +22,18 @@ app.get('/api/getAll', (req, res) => {
       console.log('get request successful!')
     })
   })
+
+app.get('/api/getAll/:id', (req, res) => {
+  let reqId = req.params.id
+  db.getAllProducts(reqId, (err, data) => {
+    if(err) {
+      console.log(err, 'cannot grab id from database')
+      res.end()
+    }
+    res.json(data)
+    console.log('grabbing id successful!!')
+  })
+})
 // console.log(__dirname);
 
   app.listen(port, () => console.log(`Server is listening on port ${port}!`))

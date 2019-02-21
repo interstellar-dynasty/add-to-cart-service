@@ -13,9 +13,9 @@ const cartSchema = new Schema ({
 
 const Cart = mongoose.model('Cart', cartSchema);
 
-const getAllProducts = (callback) => {
+const getAllProducts = (id, callback) => {
   console.log('where is this going?????')
-  Cart.find()
+  Cart.findOne({'id': id})
     .then((data) => {
       console.log(data, 'grabbing all data from get all products')
       callback(null, data)
