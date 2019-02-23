@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../dist'));
 
 app.get('/api/getAll', (req, res) => {
-  db.getAllProducts(60, (err, data) => {
+  db.getAllProducts(22, (err, data) => {
     if(err) {
       console.log(err, 'error on get api')
       res.end()
