@@ -5,8 +5,7 @@ import { inherits } from 'util';
 
 const border = {
   width: '242px',
-  height: '461px',
-  borderStyle: 'outset',
+  height: '400px',
 }
 const buttonDivStyle = {
   marginBottom: '5px'
@@ -69,7 +68,7 @@ class App extends React.Component {
       let id = event.detail 
       Axios.get(`/api/getAll/${id}`)
       .then(data => {
-      console.log(data, "this is the data we are looking for ")
+      // console.log(data, "this is the data we are looking for ")
         this.setState({
           info: data.data
         });
@@ -80,7 +79,7 @@ class App extends React.Component {
 
       Axios.get('/api/getAll')
       .then(data => {
-      console.log(data, "this is the data we are looking for ")
+      // console.log(data, "this is the data we are looking for ")
         this.setState({
           info: data.data
         });
@@ -110,8 +109,8 @@ class App extends React.Component {
         at checkout
         <div style={stockColor}><b>In stock</b></div>
         <label>Qty:</label>
-        <select>
-          <option value="1"selected>1</option>
+        <select defaultValue>
+          <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
