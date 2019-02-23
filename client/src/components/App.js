@@ -65,15 +65,30 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Axios.get('/api/getAll')
-    .then(data => {
-      // console.log(data, "this is the data we are looking for ")
-      this.setState({
-        info: data.data
-      });
-  })
-  .catch((err) => console.log('oh no there was an error in Axios request', err))
-}
+    window.addEventListener('newPage', (event) => {
+      let id = event.detail 
+      Axios.get(`/api/getAll/${id}`)
+      .then(data => {
+      console.log(data, "this is the data we are looking for ")
+        this.setState({
+          info: data.data
+        });
+    })
+    .then()
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
+  }, false)
+
+      Axios.get('/api/getAll')
+      .then(data => {
+      console.log(data, "this is the data we are looking for ")
+        this.setState({
+          info: data.data
+        });
+    })
+    .then()
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
+ }
+
 
   handleClick() {
   console.log('click')
