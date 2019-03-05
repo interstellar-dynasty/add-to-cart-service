@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-      
+console.log(mongoose)
 mongoose.connect('mongodb://hannah:password2211@ds227185.mlab.com:27185/addtocart', { useNewUrlParser: true }) //mLab
 
 const cartSchema = new Schema ({

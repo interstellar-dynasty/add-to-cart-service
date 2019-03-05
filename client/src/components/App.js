@@ -22,7 +22,6 @@ const cartButton = {
   height: '25px',
 }
 
-
 const buyNow = {
   display: 'inline-block',
   backgroundColor: '#e57839',
